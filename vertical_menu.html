@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thực hành Tạo Menu Dọc Dropdown</title>
+    <style>
+      /* 1. Reset font và lề mặc định cho các phần tử */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        padding: 40px;
+        background-color: #f5f7fa;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      /* 2. Khung chứa menu */
+      #menu ul {
+        list-style: none;
+      }
+
+      /* 3. Định kiểu các mục danh sách (li) */
+      #menu li {
+        list-style: none;
+        position: relative; /* Cho phép danh sách con định vị dựa theo li cha */
+        width: 160px;
+        height: 35px;
+        padding: 0 15px;
+        background-color: #000000;
+        line-height: 35px;
+        cursor: pointer;
+        border-bottom: 1px solid #333333;
+        transition: background-color 0.2s ease;
+      }
+
+      /* 4. Định kiểu cho các liên kết <a> bên trong menu */
+      #menu a {
+        text-decoration: none;
+        color: #ffffff;
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 14px;
+      }
+
+      /* 5. Đổi màu nền khi rê chuột vào mục chọn */
+      #menu li:hover {
+        background-color: #e74c3c;
+      }
+
+      /* 6. Định vị và ẩn menu cấp 2 (submenu) */
+      #menu li ul {
+        position: absolute;
+        top: 0;
+        left: 160px; /* Bằng đúng chiều rộng của menu cha để trượt sang bên phải */
+        visibility: hidden; /* Ẩn danh sách con khi ở trạng thái mặc định */
+        opacity: 0;
+        transition:
+          visibility 0.2s,
+          opacity 0.2s ease;
+      }
+
+      /* 7. Hiển thị menu cấp 2 khi hover vào li cha */
+      #menu li:hover > ul {
+        visibility: visible;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Menu Dọc Dropdown (Submenu)</h2>
+
+    <div id="menu">
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li>
+          <a href="#">Khóa học &raquo;</a>
+          <!-- Menu con cấp 2 -->
+          <ul>
+            <li><a href="#">Khóa học HTML</a></li>
+            <li><a href="#">Khóa học CSS</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Khóa học Git</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Dịch vụ &raquo;</a>
+          <!-- Menu con cấp 2 -->
+          <ul>
+            <li><a href="#">Thiết kế Web</a></li>
+            <li><a href="#">Lập trình App</a></li>
+            <li><a href="#">SEO & Marketing</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Tin tức</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
